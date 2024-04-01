@@ -16,11 +16,9 @@
             <!-- Formulario de carga masiva -->
             <div class="bg-white rounded-lg p-6 shadow-md">
                 <h2 class="text-xl font-semibold mb-4 text-gray-800">Carga Masiva de Usuarios</h2>
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form }}
-                        <button type="submit">Subir archivo Excel</button>
-                    </form>
+                <input type="file" class="border rounded-md px-4 py-2 mb-2 block w-full">
+                <button
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Cargar</button>
             </div>
 
             <!-- Filtros de búsqueda -->

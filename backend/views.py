@@ -7,7 +7,6 @@ from backend.models import Usuario
 from .forms import UploadExcelForm
 import pandas as pd
 
-
 # Create your views here.
 
 
@@ -26,9 +25,10 @@ def home(request):
 def usuarios(request):
     return render(request, 'usuarios.html')
 
+
 def lista_usuarios(request):
-    usuarios = Usuario.objects.all()  # Obtener todos los usuarios de la base de datos
-    return render(request, 'usuarios.html', {'usuarios': usuarios})  # Corrige 'usuarios.html' con la extensión del archivo
+    usuarios = Usuario.objects.all() 
+    return render(request, 'usuarios.html', {'usuarios': usuarios})
 
 
     

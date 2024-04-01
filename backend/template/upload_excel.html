@@ -1,5 +1,20 @@
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Subir archivo Excel</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir archivo Excel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+    <div class="bg-white p-8 rounded-lg shadow-md max-w-md">
+        <h1 class="text-2xl font-semibold text-center mb-6">Subir archivo Excel Carga Masiva de Usuarios</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="excelFile" class="block mb-2 text-gray-700">Seleccionar archivo Excel:</label>
+            <input type="file" id="excelFile" name="excelFile" class="block w-full py-2 px-3 border rounded-lg bg-gray-50 focus:outline-none focus:border-blue-500">
+            <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Subir archivo</button>
+        </form>
+    </div>
+</body>
+</html>
