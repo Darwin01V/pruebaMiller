@@ -51,20 +51,22 @@ def upload_excel(request):
         if form.is_valid():
             excel_file = request.FILES['file']
             if excel_file.name.endswith('.xlsx'):
-                df = pd.read_excel(excel_file)
-                for index, row in df.iterrows():
-                    usuario = Usuario(
-                        id_usuario=row['id_usuario'],
-                        user_name=row['user_name'],
-                        password=row['password'],
-                        email=row['email'],
-                        sesion_activa=row['sesion_activa']
-                    )
-                    # Guarda la instancia en la base de datos
-                    usuario.save()
-                return HttpResponse('Carga masiva exitosa')
+                try:
+                    df = pd.read_excel(excel_file)
+                    for index, row in df.iterrows():
+                        usuario = Usuario(
+                            id_usuario=row['id'],
+                            user_name=row['user_name'],
+                            password=row['password'],
+                            email=row['email'],
+                            sesion_activa=row['sesion_activa']
+                        )
+                        usuario.save()
+                    return HttpResponse('Carga masiva exitosa')
+                except Exception as e:
+                    return render(request, 'upload_excel.html', {'form': form, 'error_message': 'No se pudo guardar el archivo en la base de datos.'})
             else:
-                return HttpResponse('El archivo no es un archivo Excel válido')
+                return HttpResponse('El archivo no es un archivo Excel válido o no cumple con los Requisitos')
     else:
         form = UploadExcelForm()
     return render(request, 'upload_excel.html', {'form': form})
