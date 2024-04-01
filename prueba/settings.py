@@ -51,6 +51,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'backend.backend.EmailBackend.PasswordBackend',  # Backend personalizado para autenticación basada en correo electrónico
+
+    
+]
+
 ROOT_URLCONF = 'prueba.urls'
 
 TEMPLATES = [
@@ -70,6 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'prueba.wsgi.application'
+
 
 
 # Database

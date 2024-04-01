@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
+    <div class="ml-[4rem] mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-black">Mantenimiento de Usuarios</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Formulario de carga masiva -->
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Carga Masiva de Usuarios</h2>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit">Subir archivo Excel</button>
+                    </form>
+            </div>
+
+            <!-- Filtros de búsqueda -->
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Filtros de Búsqueda</h2>
+                <div class="flex items-center mb-2">
+                    <label for="search-name" class="mr-4 text-gray-800">Nombre:</label>
+                    <input type="text" id="search-name"
+                        class="border rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+                        placeholder="Buscar por nombre">
+                </div>
+                <button
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Buscar</button>
+            </div>
+
+            <!-- Formulario de actualización de usuario -->
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Actualizar Usuario</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="update-name" class="block mb-2 text-gray-800">Nombre</label>
+                        <input type="text" id="update-name"
+                            class="border rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+                            placeholder="Ingrese nuevo usuario">
+                    </div>
+                    <div>
+                        <label for="update-email" class="block mb-2 text-gray-800">Correo Electrónico</label>
+                        <input type="email" id="update-email"
+                            class="border rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+                            placeholder="Ingrese nuevo correo electrónico">
+                    </div>
+                    <div>
+                        <label for="update-password" class="block mb-2 text-gray-800">Contraseña</label>
+                        <input type="password" id="update-password"
+                            class="border rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+                            placeholder="Ingrese nueva contraseña">
+                    </div>
+                </div>
+                <button
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Actualizar</button>
+            </div>
+
+
+
+
+            <!-- Formulario de actualización de estado -->
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Actualizar Estado</h2>
+                <div class="flex items-center mt-7">
+                    <label for="update-state" class="mr-4 text-gray-800">Estado:</label>
+                    <select id="update-state"
+                        class="border rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+                </div>
+                <div class="flex items-center mt-7">
+                    <label for="update-state" class="mr-4 text-gray-800">Bloqueado:</label>
+                    <select id="update-state"
+                        class="border rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+                        <option value="activo">Si</option>
+                        <option value="inactivo">No</option>
+                    </select>
+                </div>
+                <button
+                    class="bg-blue-500 text-white mt-10 px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Actualizar</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

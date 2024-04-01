@@ -20,5 +20,12 @@ from backend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.login),
+    path('login/', views.iniciar_sesion, name='login'),  
+    path('mantenimiento/', views.mantenimiento),
+    path('bienvenida/', views.bienvenida),
+    path('dashboard/', views.dashboard),
+    path('home/', views.home),
+    path('usuarios/', views.lista_usuarios),
+    path('upload_excel/', views.upload_excel, name='upload_excel'),
+
 ]

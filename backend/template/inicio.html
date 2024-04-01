@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Estilos adicionales para el topbar */
+    .topbar {
+      width: 200px;
+      transition: width 0.3s ease;
+    }
+    .topbar.collapsed {
+      width: 50px;
+    }
+    .menu-option {
+      transition: margin-left 0.3s ease;
+    }
+    .topbar.collapsed .menu-option {
+      margin-left: -150px; /* Ancho del topbar menos el ancho del menú */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen flex">
+  <!-- Topbar -->
+  <nav class="bg-blue-500 text-white py-4 topbar h-full">
+    <div class="container mx-auto flex flex-col justify-between h-full">
+      <div>
+        <div class="ml-2">
+          <a href="#" class="text-xl font-bold menu-option">TopBar Actions</a>
+        </div>
+        <div class="mt-6">
+          <ul>
+            <li><a href="#" class="block py-2 ml-2 menu-option">Bienvenida</a></li>
+            <li><a href="#" class="block py-2 ml-2 menu-option">Usuarios</a></li>
+            <li><a href="#" class="block py-2 ml-2 menu-option">Services</a></li>
+            <li><a href="#" class="block py-2 ml-2 menu-option">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <button id="toggleBtn" class="bg-white- text-black px-3 py-2 rounded-full shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M4 9h16v2H4zm0 4h16v2H4z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+
+  <div class="text-center">
+    <div class=" px-4 py-8">
+        {% include 'mantenimiento_usuario.html' %}
+      </div>
+  </div>
+
+
+  <script>
+    document.getElementById('toggleBtn').addEventListener('click', function() {
+      document.querySelector('.topbar').classList.toggle('collapsed');
+    });
+  </script>
+</body>
+</html>
