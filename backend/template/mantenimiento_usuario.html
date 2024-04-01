@@ -15,23 +15,25 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Formulario de carga masiva -->
             <div class="bg-white rounded-lg p-6 shadow-md">
-                <h2 class="text-xl font-semibold mb-4 text-gray-800">Carga Masiva de Usuarios</h2>
+                {% include 'upload_excel.html' %}
+            </div>
+
+            <!--<h2 class="text-xl font-semibold mb-4 text-gray-800">Carga Masiva de Usuarios</h2>
                 <input type="file" class="border rounded-md px-4 py-2 mb-2 block w-full">
                 <button
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Cargar</button>
-            </div>
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Cargar</button>-->
 
             <!-- Filtros de búsqueda -->
             <div class="bg-white rounded-lg p-6 shadow-md">
                 <h2 class="text-xl font-semibold mb-4 text-gray-800">Filtros de Búsqueda</h2>
-                <div class="flex items-center mb-2">
+                <div class="flex items-center mt-12 mb-2">
                     <label for="search-name" class="mr-4 text-gray-800">Nombre:</label>
                     <input type="text" id="search-name"
                         class="border rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
                         placeholder="Buscar por nombre">
                 </div>
                 <button
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Buscar</button>
+                    class="bg-blue-500 text-white mt-12 px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Buscar</button>
             </div>
 
             <!-- Formulario de actualización de usuario -->

@@ -27,15 +27,16 @@
     <div class="container mx-auto flex flex-col justify-between h-full">
       <div>
         <div class="ml-2">
-          <a href="#" class="text-xl font-bold menu-option">TopBar Actions</a>
+          <a href="#" class="text-xl font-bold menu-option" onclick="showContent('')">TopBar Actions</a>
         </div>
         <div class="mt-6">
-          <ul>
-            <li><a href="#" class="block py-2 ml-2 menu-option">Bienvenida</a></li>
-            <li><a href="#" class="block py-2 ml-2 menu-option">Usuarios</a></li>
-            <li><a href="#" class="block py-2 ml-2 menu-option">Services</a></li>
-            <li><a href="#" class="block py-2 ml-2 menu-option">Contact</a></li>
-          </ul>
+            <ul>
+                <li><a href="#" class="block py-2 ml-2 menu-option hover:scale-100 transition-transform" onclick="showContent('bienvenida')">Bienvenida</a></li>
+                <li><a href="#" class="block py-2 ml-2 menu-option hover:scale-100 transition-transform" onclick="showContent('usuarios')">Usuarios</a></li>
+                <li><a href="#" class="block py-2 ml-2 menu-option hover:scale-100 transition-transform" onclick="showContent('dashboard')">Dashboard</a></li>
+                <li><a href="#" class="block py-2 ml-2 menu-option hover:scale-100 transition-transform" onclick="showContent('mantenimiento')">Mantenimiento user</a></li>
+              </ul>
+              
         </div>
       </div>
       <button id="toggleBtn" class="bg-white- text-black px-3 py-2 rounded-full shadow-md">
@@ -48,18 +49,44 @@
   </nav>
 
   <!-- Contenido -->
-
-  <div class="text-center">
-    <div class=" px-4 py-8">
-        {% include 'mantenimiento_usuario.html' %}
-      </div>
+  <div class="container justify-center text-center" id="content">
+    <div class="px-4 py-8">
+      
+    </div>
   </div>
-
 
   <script>
     document.getElementById('toggleBtn').addEventListener('click', function() {
       document.querySelector('.topbar').classList.toggle('collapsed');
     });
+
+    function showContent(option) {
+        var contentDiv = document.getElementById('content');
+        var url = '';
+
+        switch (option) {
+            case 'bienvenida':
+                url = "{% url 'bienvenida' %}";
+                break;
+            case 'usuarios':
+                url = "{% url 'usuarios' %}";
+                break;
+            case 'dashboard':
+                url = "{% url 'dashboard' %}";
+                break;
+            case 'mantenimiento':
+                url = "{% url 'mantenimiento' %}";
+                break;
+            default:
+                break;
+        }
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                contentDiv.innerHTML = data;
+            });
+    }
   </script>
 </body>
 </html>

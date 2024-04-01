@@ -21,11 +21,10 @@ from backend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.iniciar_sesion, name='login'),
-    path('home/', views.home),
-    path('bienvenida/', views.bienvenida),  
-    path('mantenimiento/', views.mantenimiento),
-    path('dashboard/', views.dashboard),
-    path('usuarios/', views.lista_usuarios),
+    path('home/', views.home), 
     path('upload_excel/', views.upload_excel, name='upload_excel'),
-
+    path('bienvenida/', views.bienvenida, name='bienvenida'),
+    path('mantenimiento/', views.mantenimiento, name='mantenimiento'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('usuarios/', views.lista_usuarios, name='usuarios'),
 ]
