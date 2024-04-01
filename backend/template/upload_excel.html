@@ -16,7 +16,7 @@
         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="excelFile" class="block mb-2 text-gray-700">Seleccionar archivo Excel:</label>
+            <label for="excelFile" class="block mb-2 text-gray-700">Seleccionar archivo Excel</label>
             <input type="file" id="excelFile" name="excelFile" class="block w-full py-2 px-3 border rounded-lg bg-gray-50 focus:outline-none focus:border-blue-500">
             <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Subir archivo</button>
         </form>
